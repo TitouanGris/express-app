@@ -1,8 +1,5 @@
 const express = require("express");
-
 const app = express();
-
-const port = 5000;
 
 const movies = [
   {
@@ -31,14 +28,6 @@ const movies = [
   },
 ];
 
-app.listen(port, (err) => {
-  if (err) {
-    console.error("Something bad happened");
-  } else {
-    console.log(`Server is listening on ${port}`);
-  }
-});
-
 const welcome = (req, res) => {
   res.send("Welcome to my favorite movie list");
 };
@@ -62,3 +51,5 @@ const getMoviesId = (req, res) => {
 };
 
 app.get("/api/movies/:id", getMoviesId);
+
+module.exports = app;
